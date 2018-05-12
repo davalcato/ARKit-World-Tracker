@@ -26,23 +26,33 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func add(_ sender: Any) {
+        let doorNode = SCNNode(geometry: SCNPlane(width: 0.03, height: 0.06))
+        doorNode.geometry?.firstMaterial?.diffuse.contents = UIColor.brown
+        let boxNode = SCNNode(geometry: SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0))
+        boxNode.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
         let node = SCNNode()
 //        node.geometry = SCNCapsule(capRadius: 0.1, height: 0.3)
 //        node.geometry = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.03)
-        let path = UIBezierPath()
-        path.move(to: CGPoint(x: 0, y: 0))
-        path.addLine(to: CGPoint(x: 0, y: 0.2))
-        path.addLine(to: CGPoint(x: 0.2, y: 0.3))
+//        let path = UIBezierPath()
+//        path.move(to: CGPoint(x: 0, y: 0))
+//        path.addLine(to: CGPoint(x: 0, y: 0.2))
+//        path.addLine(to: CGPoint(x: 0.2, y: 0.3))
+//        path.addLine(to: CGPoint(x: 0.4, y: 0.2))
+//        path.addLine(to: CGPoint(x: 0.4, y: 0))
+//        let shape = SCNShape(path: path, extrusionDepth: 0.2)
+//        node.geometry = shape
         
-        let shape = SCNShape(path: path, extrusionDepth: 0.2)
-        node.geometry = shape 
-        
-//        node.geometry = SCNPyramid(width: 0.1, height: 0.1, length: 0.1)
+        node.geometry = SCNPyramid(width: 0.1, height: 0.1, length: 0.1)
         node.geometry?.firstMaterial?.specular.contents = UIColor.orange
-        node.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
-        
-        node.position = SCNVector3(0,0,-0.7)
+        node.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+        node.position = SCNVector3(0.2,0.3,-0.2)
+        boxNode.position = SCNVector3(0, -0.05, 0)
+        doorNode.position = SCNVector3(0,-0.02,0.053)
         self.sceneView.scene.rootNode.addChildNode(node)
+        node.addChildNode(boxNode)
+        boxNode.addChildNode(doorNode)
+        
+//        self.sceneView.scene.rootNode.addChildNode(cylinderNode)
         
     }
     
