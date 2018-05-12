@@ -1,0 +1,6 @@
+version: "Apple Swift version 4.1.1 (swiftlang-902.0.53 clang-902.0.39.2)"
+options: "c20f9a05076633ba0dea914d132bbb16"
+build_time: [1526082108, 495975000]
+inputs:
+  "/Users/davalcato/Desktop/iOS/World Tracker/World Tracker/ViewController.swift": [1526082103, 0]
+  "/Users/davalcato/Desktop/iOS/World Tracker/World Tracker/AppDelegate.swift": [1526074615, 0]
